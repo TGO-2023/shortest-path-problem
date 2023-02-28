@@ -8,3 +8,6 @@
 
 ## Kebutuhan
 [Link Kebutuhan Drive](https://drive.google.com/drive/folders/15paL2VorYRDbBIsALy4GNjHzvQYZBMG7?hl=id)
+
+## Aturan commit
+[Link Aturan Title Commit](https://www.conventionalcommits.org/en/v1.0.0-beta.2/)
