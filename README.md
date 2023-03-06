@@ -20,4 +20,4 @@ Finding the shortest feasible path is important for the purpose of navigation of
 In this paper, Enhanced Linear Graph (ELGraph) is presented for feasible node pairs selection. The work focuses on node pair selection in an arena containing obstacles as convex polygons so that node pairs intersecting any obstacles is removed and therefore collision can be avoided. The approach is thoroughly discussed in the paper and compared with the commonly used conventional visibility graph (VGraph). Finally the feasible node pairs obtained are fed as input to Dijkstra algorithmto find the shortest possible path
 
 ## Reference Code
-![Pseudo code reference](https://raw.githubusercontent.com/TGO-2023/shortest-path-problem/resource/image/code-reference.PNG)
+![Pseudo code reference](https://raw.githubusercontent.com/TGO-2023/shortest-path-problem/main/resource/image/code-reference.png)
