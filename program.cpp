@@ -3,7 +3,6 @@
 
 #define MAX 10
 #define INFINITY INT_MAX
-#define MINUS_INFINITY INT_MIN
 
 using namespace std;
 
@@ -78,7 +77,7 @@ void fillArray(int graph[MAX][MAX], int n, int value)
 int main()
 {
   int graph[MAX][MAX];
-  fillArray(graph, MAX, MINUS_INFINITY);
+  fillArray(graph, MAX, INFINITY);
 
   int n;
   printf("\nTotal nodes: ");
@@ -92,7 +91,7 @@ int main()
       printf("Distance to Node %d: ", j);
       if (i == j)
         graph[i][j] = 0;
-      if (graph[i][j] == MINUS_INFINITY && graph[j][i] == MINUS_INFINITY)
+      if (graph[i][j] == INFINITY && graph[j][i] == INFINITY)
         scanf("%d", &graph[i][j]);
       else
       {
