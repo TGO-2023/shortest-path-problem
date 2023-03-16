@@ -146,6 +146,23 @@ public:
 
 int main()
 {
+  list<Obstacle> obstacleList;
+  Obstacle obstacle1(RECTANGLE, 150, 100, 50, 450);
+  Obstacle obstacle2(RECTANGLE, 100, 100, 50, 300);
+  Obstacle obstacle3(RIGHT_TRIANGLE, 100, 150, 250, 400);
+  Obstacle obstacle4(RECTANGLE, 150, 100, 200, 200);
+  Obstacle obstacle5(RECTANGLE, 50, 100, 400, 150);
+  Obstacle obstacle6(RECTANGLE, 100, 50, 350, 450);
+  obstacleList.push_back(obstacle1);
+  obstacleList.push_back(obstacle2);
+  obstacleList.push_back(obstacle3);
+  obstacleList.push_back(obstacle4);
+  obstacleList.push_back(obstacle5);
+  obstacleList.push_back(obstacle6);
+  int xBoundary = 500;
+  int yBoundary = 500;
+  Arena arena(obstacleList, xBoundary, yBoundary);
+
   int graph[MAX][MAX];
   fillArray(graph, MAX, INFINITY);
 
@@ -170,18 +187,6 @@ int main()
       }
     }
   }
-
-  List<Obstacle> obstacleList = new ArrayList<>();
-  Obstacle obstacle1 = new Obstacle(ObstacleType.RECTANGLE, 150, 100, 50, 450);
-  Obstacle obstacle2 = new Obstacle(ObstacleType.RECTANGLE, 100, 100, 50, 300);
-  Obstacle obstacle3 = new Obstacle(ObstacleType.RIGHT_TRIANGLE, 100, 150, 250, 400);
-  Obstacle obstacle4 = new Obstacle(ObstacleType.RECTANGLE, 150, 100, 200, 200);
-  Obstacle obstacle5 = new Obstacle(ObstacleType.RECTANGLE, 50, 100, 400, 150);
-  Obstacle obstacle6 = new Obstacle(ObstacleType.RECTANGLE, 100, 50, 350, 450);
-
-  Integer xBoundary = 500;
-  Integer yBoundary = 500;
-  Arena arena = new Arena(obstacleList, xBoundary, yBoundary);
 
   return 0;
 }
