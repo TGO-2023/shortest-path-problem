@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string.h>
-
+#include <list>
 #define MAX 10
 #define INFINITY INT_MAX
 
@@ -74,6 +74,76 @@ void fillArray(int graph[MAX][MAX], int n, int value)
       graph[i][j] = value;
 }
 
+// Enum
+// https://www.duniailkom.com/tutorial-belajar-c-plus-plus-tipe-data-enum-bahasa-c-plus-plus/#:~:text=Format%20Penulisan%20Tipe%20Data%20Enum%20C%2B%2B&text=Format%20dasarnya%20adalah%20sebagai%20berikut,%2C%20kamis%2C%20jumat%2C%20sabtu%7D%3B
+enum ObstacleType
+{
+  RIGHT_TRIANGLE,
+  SQUARE,
+  RECTANGLE
+};
+// Class Obstacle
+class Obstacle
+{
+public:
+  ObstacleType obstacleType;
+  int width, length, startX, startY;
+  int coordinat[4][4];
+  Obstacle(ObstacleType obstacleType, int length, int width, int startX, int startY)
+  {
+    this->obstacleType = obstacleType;
+    this->length = length;
+    this->width = width;
+    this->startX = startX;
+    this->startY = startY;
+    setDimension();
+  }
+
+private:
+  void setDimension()
+  {
+    switch (this->obstacleType)
+    {
+    case RIGHT_TRIANGLE:
+      coordinat[0][1] = startX;
+      coordinat[0][2] = startY;
+      coordinat[1][1] = startX;
+      coordinat[0][2] = startY - width;
+      coordinat[2][1] = startX + length;
+      coordinat[2][2] = startY - width;
+    case RECTANGLE:
+      coordinat[0][1] = startX;
+      coordinat[0][2] = startY;
+      coordinat[1][1] = startX + length;
+      coordinat[1][2] = startY;
+      coordinat[2][1] = startX;
+      coordinat[2][2] = startY - width;
+      coordinat[3][1] = startX + length;
+      coordinat[3][2] = startY - width;
+    default:
+      cout << "INVALID OBJECT ";
+    }
+  }
+};
+
+// Class Arena
+class Arena
+{
+public:
+  int xSource, ySource, xDestination, yDestination, xBoundary, yBoundary;
+  list<Obstacle> obstacleList;
+  Arena(list<Obstacle> obstacleList, int xBoundary, int yBoundary)
+  {
+    this->obstacleList = obstacleList;
+    this->xSource = 0;
+    this->ySource = yBoundary;
+    this->xDestination = xBoundary;
+    this->yDestination = 0;
+    this->xBoundary = xBoundary;
+    this->yBoundary = yBoundary;
+  }
+};
+
 int main()
 {
   int graph[MAX][MAX];
@@ -100,6 +170,18 @@ int main()
       }
     }
   }
+
+  List<Obstacle> obstacleList = new ArrayList<>();
+  Obstacle obstacle1 = new Obstacle(ObstacleType.RECTANGLE, 150, 100, 50, 450);
+  Obstacle obstacle2 = new Obstacle(ObstacleType.RECTANGLE, 100, 100, 50, 300);
+  Obstacle obstacle3 = new Obstacle(ObstacleType.RIGHT_TRIANGLE, 100, 150, 250, 400);
+  Obstacle obstacle4 = new Obstacle(ObstacleType.RECTANGLE, 150, 100, 200, 200);
+  Obstacle obstacle5 = new Obstacle(ObstacleType.RECTANGLE, 50, 100, 400, 150);
+  Obstacle obstacle6 = new Obstacle(ObstacleType.RECTANGLE, 100, 50, 350, 450);
+
+  Integer xBoundary = 500;
+  Integer yBoundary = 500;
+  Arena arena = new Arena(obstacleList, xBoundary, yBoundary);
 
   return 0;
 }
